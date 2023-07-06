@@ -1,6 +1,8 @@
 const express = require('express');
 const { mongoose } = require('mongoose');
 const cors = require('cors');
+require('dotenv').config();
+const MONGO_URI = process.env.MONGO_CONNECTION;
 
 
 const register = require('./Routes/register');
@@ -49,7 +51,7 @@ app.use('/verify', verifyToken,verify);;
 
 
 
-const MONGO_URI = "mongodb+srv://manjudmanjudharagond:3WuRpYKAvAd8RMX@cluster0.nd73572.mongodb.net/ecommerce";
+
 
 
 mongoose.connect(MONGO_URI, ()=>{

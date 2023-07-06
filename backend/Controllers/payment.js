@@ -1,5 +1,11 @@
 const Razorpay = require('razorpay');
-var instance = new Razorpay({ key_id: process.env.REACT_APP_RAZORPAY_KEY, key_secret: process.env.REACT_APP_RAZORPAY_SECRET })
+require('dotenv').config();
+
+
+const razorpayKey = process.env.REACT_APP_RAZORPAY_KEY;
+const razorpaySecret = process.env.REACT_APP_RAZORPAY_SECRET;
+
+var instance = new Razorpay({ key_id: razorpayKey , key_secret: razorpaySecret})
 
 exports.createOrder = (req,res) =>{
     let {amount} = req.body;

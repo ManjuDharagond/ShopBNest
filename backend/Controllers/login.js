@@ -3,6 +3,10 @@ const login = express.Router();
 const User = require('../Models/userSchema');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
+
+const secretkey = process.env.JWT_SECRET;
+
 
 exports.tryLogin = async(req,res) =>{
     try{
@@ -26,7 +30,7 @@ exports.tryLogin = async(req,res) =>{
         //Generate JWT token
 
         // const token = jwt.sign({email:user.email, userId: user._id}, 'secretKeyChangeThisLater', {expiresIn:'1h'});
-        const token = jwt.sign({email:user.email, userId: user._id}, 'secretKeyChangeThisLater');
+        const token = jwt.sign({email:user.email, userId: user._id}, secretkey);
         
         res.status(200).json({data:{token,user}, message:"Login successful"});
 

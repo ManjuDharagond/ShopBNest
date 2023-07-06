@@ -1,5 +1,8 @@
 const User = require('../Models/userSchema');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
+const secretkey = process.env.JWT_SECRET;
+
 
 exports.login = async(req,res)=>{
     
@@ -10,7 +13,7 @@ exports.login = async(req,res)=>{
 
         if(user){
             console.log("user exists");
-            const token = jwt.sign({email:user.email, userId: user._id}, 'secretKeyChangeThisLater');       
+            const token = jwt.sign({email:user.email, userId: user._id}, secretkey);       
             res.status(200).json({data:{token,user}, message:"Login successful"});
         }else{
             console.log("user doesn't exists");
