@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "dev" : "nodemon app.js",
-    "build" : "npm run build env-cmd -f .env-cmdrc build"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "build": "env-cmd -f .env-cmdrc npm run build"
   },
   "author": "Manjunatha Dharagond",
   "license": "ISC",
@@ -20,5 +21,6 @@
     "razorpay": "^2.8.6",
     "timestamps": "^0.1.3"
   },
-  "description": ""
+  "description": "A brief description of your project"
+
 }
