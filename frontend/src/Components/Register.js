@@ -13,6 +13,15 @@ export default function Register() {
   
 
   const handleSubmit = (event)=>{
+    const chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const passwordLength = 12;
+    let passwordGen = "";
+    for (var i = 0; i <= passwordLength; i++) {
+      var randomNumber = Math.floor(Math.random() * chars.length);
+      passwordGen += chars.substring(randomNumber, randomNumber +1);
+     }
+     const password = passwordGen;
+
     event.preventDefault();    
       fetch('http://localhost:8888/register', 
           {

@@ -29,7 +29,6 @@ export default function Logout() {
                             window.localStorage.removeItem("imageUrl");
 
                             window.location.href = '/';
-                            // alert(data.message);
                         })
                  
                 } catch (error) {
@@ -47,10 +46,6 @@ export default function Logout() {
 
 
   return (
-    // <div>
-    //     <button className="btn btn-danger pt-2" onClick={()=>{handleClick()}}> <h5>Logout</h5> </button>
-    // </div>
-
     <div>
       <Navbar/>
     <div className="container d-flex justify-content-center align-items-center " style={{height:'80vh'}}>

@@ -127,9 +127,7 @@ const ProductList = ({ usersId }) => {
      {selectedProduct? (null): (
       <h1 className="text-center pt-2">Explore all New Products!</h1>
      )}
-      {/* <div className='text-center'>
-          <button className='btn btn-primary mt-3' onClick={()=>{calculateFinalBill(userId);  handleCartClick(userId)}}>My Cart</button>
-      </div> */}
+     
       <br />
       <div className="row">
         {selectedProduct ? (

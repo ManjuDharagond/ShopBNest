@@ -1,111 +1,3 @@
-// import React, {useState, useEffect} from "react";
-// import {useNavigate } from 'react-router-dom';
-
-
-
-// export default function Login(props) {
-    
-//     const[email,setEmail] = useState("");
-//     const[password,setPassword] = useState("");
-//     const navigate = useNavigate();
-//     const [loggedIn, setLoggedIn] = useState(false);
-
-
-
-
-//     const handleSubmit = (event) =>{
-//         event.preventDefault();
-        
-
-//         fetch('http://localhost:8888/login',{
-//             method:"POST",
-//             headers:{
-//                 "Content-Type": "application/json",
-//             },
-//             body:JSON.stringify({email:email, password: password})
-//         })
-//         .then(response=>{
-//             return response.json();
-//         })
-//         .then(data=>{
-           
-//             const { token, user } = data.data;
-//             props.setUserId(user._id);
-//             localStorage.setItem('token', token);
-//             localStorage.setItem('login', true);
-//             localStorage.setItem('userId', user._id);
-//             // window.location.href = '/dashboard';
-           
-//             setLoggedIn(true);
-//             props.onLogin();
-//             props.storeCollector();
-//             // alert(data.message);
-//             navigate('/products');
-            
-//         })
-//         .catch(error => {
-//             alert('Login failed:', error);
-//           });
-//     }
-
-
-
-
-//   return (
-
-//     <div className="container br-5 " style={{height:'100vh'}}>
-//       <div className="row h-100 d-flex align-items-center justify-content-center ">
-//         <div className="col-md-6">
-//           <div className="card">
-//             <div className="card-body m-3">
-//               {loggedIn ? (
-//                 <div>
-//                   <h2 className="card-title text-center">Welcome, user!</h2>
-//                 </div>
-//               ) : (
-//                         <div>
-//                           <h2 className="card-title text-center mb-4">Login</h2>
-//                           <form onSubmit={handleSubmit} className="pt-2 mx-auto" style={{width:"85%"}}>
-//                             <div className="form-group pb-2" >
-//                               <label htmlFor="email">Email</label>
-//                               <input
-//                                 type="email"
-//                                 className="form-control mt-2"
-//                                 id="email"
-//                                 name="email"
-//                                 placeholder="Enter your email"
-//                                 value={email}
-//                                 onChange={(event) => setEmail(event.target.value)}
-//                               />
-//                             </div>
-//                             <div className="form-group pb-4">
-//                               <label htmlFor="password">Password</label>
-//                               <input
-//                                 type="password"
-//                                 className="form-control mt-2"
-//                                 id="password"
-//                                 name="password"
-//                                 placeholder="Enter your password"
-//                                 value={password}
-//                                 onChange={(event) => setPassword(event.target.value)}
-//                               />
-//                             </div>
-//                             <button type="submit" className="btn btn-primary btn-block">Login</button>
-//                           </form>
-//                           <div className="text-center mt-4">
-//                             <p>Don't have an account? <a href="/register">Register here</a></p>
-//                           </div>
-//                         </div>
-//               )}
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-
-//   )
-// }
-
 
 
 
@@ -113,10 +5,6 @@ import React, {useState, useEffect} from "react";
 import GoogleLogin from 'react-google-login';
 import {gapi} from 'gapi-script';
 import {useNavigate,Link } from 'react-router-dom';
-import User from "./User";
-// import {LoginSocialFacebook} from 'reactjs-social-login';
-// import {FacebookLoginButton} from 'react-social-login-buttons';
-
 
 
 export default function Login(props) {
@@ -135,7 +23,7 @@ export default function Login(props) {
     useEffect(()=>{
       async function start(){
         gapi.client.init({
-          clientId: "977417462061-l0h42ft86n5giea84mei254o1a767deh.apps.googleusercontent.com",
+          clientId: process.env.REACT_APP_GOOGLE_CLIENT_ID,
           scope:""
         });
       };
@@ -288,7 +176,7 @@ export default function Login(props) {
                           <div style={{minWidth:'30vw', maxWidth:'95vw'}}>
                             <div className="mt-3 mx-auto" style={{minWidth:"75%", maxWidth:'95%'}}>
                                 <GoogleLogin
-                                  clientId="977417462061-l0h42ft86n5giea84mei254o1a767deh.apps.googleusercontent.com"
+                                  clientId= {process.env.REACT_APP_GOOGLE_CLIENT_ID}
                                   buttonText="Continue with Google"
                                   onSuccess={responseGoogle}
                                   onFailure={handleGoogleFailure}
@@ -298,18 +186,6 @@ export default function Login(props) {
                                 />
                             </div>
                             
-
-                               {/* <LoginSocialFacebook 
-                                 appId="521432633450216"
-                                 onResolve={(response)=>{
-                                  console.log(response);
-                                 }}
-                                 onReject={(error)=>{
-                                  console.log(error);
-                                 }}    
-                               >
-                                    <FacebookLoginButton/>
-                               </LoginSocialFacebook>      */}
 
                           </div>
                           <div className="text-center mt-4">
