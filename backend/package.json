@@ -4,7 +4,7 @@
   "main": "app.js",
   "scripts": {
     "dev" : "nodemon app.js",
-    "build" : "npm i env-cmd -f .env-cmdrc build"
+    "build" : "npm run build env-cmd -f .env-cmdrc build"
   },
   "author": "Manjunatha Dharagond",
   "license": "ISC",
