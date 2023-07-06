@@ -26,6 +26,6 @@
   },
   "description": "A brief description of your project",
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.20"
   }
 }
