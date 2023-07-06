@@ -1,8 +1,8 @@
 const express = require('express');
-const { mongoose } = require('mongoose');
+const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
-const MONGO_URI = process.env.MONGO_CONNECTION;
+const MONGO_URI=process.env.MONGO_CONNECTION;
 
 
 const register = require('./Routes/register');
