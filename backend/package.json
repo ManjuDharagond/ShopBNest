@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",
-    "build": "env-cmd -f .env-cmdrc npm run build"
+    "build": "npm install && npm run build-production"
   },
   "author": "Manjunatha Dharagond",
   "license": "ISC",
