@@ -22,5 +22,8 @@
     "razorpay": "^2.8.6",
     "timestamps": "^0.1.3"
   },
+  "engines": {
+    "node": "14.17.0"
+  },
   "description": "A brief description of your project"
 }
