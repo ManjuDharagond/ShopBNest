@@ -2,6 +2,7 @@
 
 
 .env
+.env.cmdrc
 
 # dependencies
 /node_modules
