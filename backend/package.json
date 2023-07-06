@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",
-    "build": "react-scripts build"
+    "build": "npm i npm run dev"
   },
   "author": "Manjunatha Dharagond",
   "license": "ISC",
