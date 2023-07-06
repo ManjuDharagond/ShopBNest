@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 
 export default function RazorpayComp({userId}) {
-
     const [totalPrice, setTotalPrice] = useState(0);
     useEffect(()=>{
         calculateFinalBill(userId)
@@ -20,7 +19,7 @@ export default function RazorpayComp({userId}) {
             .then(response => response.json())
             .then(data => {
               setTotalPrice(data.total)  
-              if(data.total!=0){
+              if(data.total!==0){
               // alert(`Final bill: ${data.total}. Are you sure want to pay?`);
               // setShowModal(true); 
               }

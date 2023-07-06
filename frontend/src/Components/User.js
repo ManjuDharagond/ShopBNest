@@ -1,20 +1,10 @@
-import React from "react";
+import React from "react"
 import Navbar from "./Navbar";
 
 const User = () => {
   const url =
     "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80";
-  const userDescription =
-    " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique, sapien vitae blandit condimentum, nulla est ultrices purus, vitae facilisis turpis urna id libero. In sagittis lectus non mattis maximus. Curabitur id eros diam. Nullam ut dui eget nibh sagittis hendrerit at et quam. Donec elementum viverra tortor, sit amet gravida ex vestibulum sed Fusce elementum tellus a urna euismod, sit amet commodo purus laoreet. Aliquam in tincidunt justo, in ullamcorper quam. Nulla facilisi. Curabitur tincidunt Fusce elementum tellus a urna euismod, sit amet commodo purus laoreet sem nec pharetra vestibulum.";
 
-  const truncateDescription = (description) => {
-    const words = description.split(" ");
-    const maxWords = 70; // Set the desired maximum number of words
-    if (words.length > maxWords) {
-      return words.slice(0, maxWords).join(" ") + "...";
-    }
-    return description;
-  };
 
   return (
     <div style={{

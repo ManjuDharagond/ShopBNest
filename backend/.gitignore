@@ -3,7 +3,9 @@
 
 .env
 .env.cmdrc
+package-lock.json
 
+ 
 # dependencies
 /node_modules
 /.pnp

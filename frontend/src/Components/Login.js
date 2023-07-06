@@ -8,7 +8,7 @@ import {useNavigate,Link } from 'react-router-dom';
 
 
 export default function Login(props) {
-    
+    console.log(process.env.REACT_APP_GOOGLE_CLIENT_ID);
     const[email,setEmail] = useState("");
     const[password,setPassword] = useState("");
     const navigate = useNavigate();
@@ -89,7 +89,6 @@ export default function Login(props) {
 
     const handleSubmit = (event) =>{
         event.preventDefault(); 
-        
         fetch('http://localhost:8888/login',{
             method:"POST",
             headers:{
