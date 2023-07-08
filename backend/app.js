@@ -31,15 +31,8 @@ app.use(express.urlencoded({extended:false}));
 app.use('/register', register);
 app.use('/login', login);
 app.use('/logout', logout);
-app.use('/google-login', googleLogin)
-app.use('/verify-token', verifyToken)
-
-
-// app.use('/products/all', productDetails);
-// app.use('/cart', cart)
-// app.use('/calculate-bill', bill)
-// app.use('/get-order-id', payment)
-// app.use('/verify', verify);
+app.use('/google-login', googleLogin);
+app.use('/verify-token', verifyToken);
 
 
 app.use('/products/all', verifyToken, productDetails);
