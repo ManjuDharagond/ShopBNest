@@ -113,7 +113,7 @@ export default function RazorpayComp({userId}) {
   return (
         <div className="text-center" onClick={()=>{
             calculateFinalBill(userId);
-            if(totalPrice!=0){
+            if(totalPrice!==0){
                 makePayment();
             }
         }}>

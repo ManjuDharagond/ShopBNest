@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Carousel from './Carousel'
 import Navbar from './Navbar'
-import {useNavigate, Link } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 
 export default function HomeLogout() {
 

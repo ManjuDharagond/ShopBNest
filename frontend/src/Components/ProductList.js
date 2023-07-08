@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import ProductDetails from './ProductDetails';
-import Logout from './Logout';
-import {useNavigate } from 'react-router-dom';
 import authFetch from '../UtilityFunction/authFetch';
 import Navbar from './Navbar';
 
@@ -9,10 +7,8 @@ import Navbar from './Navbar';
 
 const ProductList = ({ usersId }) => {
   const [products, setProducts] = useState([]);
-  const navigate = useNavigate();
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [cart, setCart] = useState([]);
-  const [totalBill, setTotalBill] = useState(0);
   const [userId, setuserId] = useState(null);
 
 
@@ -83,33 +79,7 @@ const ProductList = ({ usersId }) => {
     }
   };
 
-  const calculateFinalBill = async (userId) => {
-    try {
-      await authFetch(`http://localhost:8888/calculate-bill`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ userId }),
-      })
-        .then(data => {
-          setTotalBill(data.total)
-          if(data.total!==0){
-            console.log(data.total);
-          }else{
-            alert("Please add any product to cart")
-          }
-        });
-    } catch (error) {
-      console.error('Error calculating final bill:', error);
-    }
-  };
-
  
-  const handleCartClick = ()=>{
-    navigate('/cart');
-  }
-
 
   const truncateDescription = (description) => {
     const words = description.split(' ');

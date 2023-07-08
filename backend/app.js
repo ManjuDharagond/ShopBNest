@@ -18,7 +18,7 @@ const verify  = require('./Routes/verify');
 const googleLogin = require('./Routes/googleLogin');
 
 
-const PORT = 8888;
+const PORT =process.env.PORT || 8888;
 const hostname = "localhost";
 
 const app = express();

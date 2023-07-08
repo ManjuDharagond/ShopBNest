@@ -9,8 +9,6 @@ import CartPage from './Components/CartPage';
 import authFetch from './UtilityFunction/authFetch';
 import Logout from './Components/Logout';
 import HomeLogout from './Components/HomeLogout';
-import backgroundImage from './Assets/background.jpg'
-import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import About from './Components/About';
 import PageNotFound from './Components/PageNotFound';
@@ -69,9 +67,6 @@ function App() {
     <Router >
        
       <div className="App" id='root' style={{ height:'100vh' }}>
-
-      {/* {localStorage.getItem('login') && <Navbar/>}   */}
-
       <div className='content' >
           <Routes>
           {!localStorage.getItem('login') && <Route path='/' element={<Home />} />}
@@ -101,8 +96,6 @@ function App() {
           <Route path="/logout" element={<Logout/>} />
           <Route path="/about" element={<About/>} />
           <Route path="/login" element={<Login onLogin={handleLogin} storeCollector={storeCollector} setUserId={setUserId} />} />
-
-          {/* {localStorage.getItem('login') && <Route path="/products" element={<ProductList userId={userId} authFetch={authenticatedFetch}/>}/>} */}
 
           {localStorage.getItem('login') && <Route path="/products" element={<ProductList userId={userId} authFetch={authenticatedFetch}/>}/>}
 

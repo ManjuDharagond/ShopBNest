@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import jwt_decode from "jwt-decode";
-
-import { gapi } from "gapi-script";
 import { useNavigate, Link } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 
@@ -49,22 +46,8 @@ export default function Login(props) {
       { theme: "outline", size:'large',  width:'inherit', padding:'10px' }
     );
 
-    // async function start(){
-    //   gapi.client.init({
-    //     clientId: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-    //     scope:""
-    //   });
-    // };
-    // gapi.load('client:auth2', start);
   });
 
-  const responseFacebook = (response) => {
-    console.log(response);
-  };
-
-  const handleGoogleFailure = (response) => {
-    console.log(response);
-  };
 
   const handleLogin = () => {
     fetch("http://localhost:8888/google-login", {
@@ -169,7 +152,6 @@ export default function Login(props) {
                       style={{ minWidth: "75%", maxWidth: "95%" }}
                     >
                       <div className="form-group pb-2">
-                        {/* <label htmlFor="email">Email</label> */}
                         <input
                           type="email"
                           className="form-control mt-2"
@@ -181,7 +163,6 @@ export default function Login(props) {
                         />
                       </div>
                       <div className="form-group pb-4">
-                        {/* <label htmlFor="password">Password</label> */}
                         <input
                           type="password"
                           className="form-control mt-2"
@@ -200,7 +181,6 @@ export default function Login(props) {
                       </button>
                     </form>
 
-                    {/* <div className="mt-3 mx-auto" id="googleSignInDiv" style={{minWidth:"75%", maxWidth:'95%'}}>                        */}
 
                     <div className="d-flex">
                       <div
