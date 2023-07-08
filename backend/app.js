@@ -18,8 +18,6 @@ const verify  = require('./Routes/verify');
 const googleLogin = require('./Routes/googleLogin');
 
 
-const PORT =process.env.PORT || 8888;
-const hostname = "localhost";
 
 const app = express();
 
@@ -56,6 +54,6 @@ mongoose.connect(MONGO_URI, ()=>{
 
 
 
-app.listen(PORT, hostname,()=>{
-    console.log(`Server is running on http://${hostname}:${PORT}`);
+app.listen(process.env.PORT || 8888,()=>{
+    console.log("Server is running on PORT");
 })
