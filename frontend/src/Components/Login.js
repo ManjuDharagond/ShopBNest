@@ -50,7 +50,7 @@ export default function Login(props) {
 
 
   const handleLogin = () => {
-    fetch("http://localhost:8888/google-login", {
+    fetch(`${process.env.REACT_APP_API_URL}/google-login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -77,7 +77,7 @@ export default function Login(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("http://localhost:8888/login", {
+    fetch(`${process.env.REACT_APP_API_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

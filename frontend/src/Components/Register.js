@@ -23,7 +23,7 @@ export default function Register() {
      const password = passwordGen;
 
     event.preventDefault();    
-      fetch('http://localhost:8888/register', 
+      fetch(`${process.env.REACT_APP_API_URL}/register`, 
           {
             method:'POST',
             headers: {

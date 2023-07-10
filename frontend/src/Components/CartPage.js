@@ -16,7 +16,7 @@ const CartPage = ({ userId }) => {
 
   const fetchCartItems = async (userId) => {
     try {
-      authFetch(`http://localhost:8888/cart/${userId}`, {
+      authFetch(`${process.env.REACT_APP_API_URL}/cart/${userId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ const CartPage = ({ userId }) => {
 
   const removeFromCart = async (productId) => {
     try {
-      await authFetch('http://localhost:8888/cart/remove', {
+      await authFetch(`${process.env.REACT_APP_API_URL}/cart/remove`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ const CartPage = ({ userId }) => {
 
   const increaseQuantity = async (productId) => {
     try {
-      await authFetch('http://localhost:8888/cart/update', {
+      await authFetch(`${process.env.REACT_APP_API_URL}/cart/update`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ const CartPage = ({ userId }) => {
       removeFromCart(productId)
     } else{
     try {
-      await authFetch('http://localhost:8888/cart/update', {
+      await authFetch(`${process.env.REACT_APP_API_URL}/cart/update`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ const CartPage = ({ userId }) => {
 
   const calculateFinalBill = async (userId) => {
     try {
-      await authFetch(`http://localhost:8888/calculate-bill`, {
+      await authFetch(`${process.env.REACT_APP_API_URL}/calculate-bill`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -122,7 +122,7 @@ const CartPage = ({ userId }) => {
       return false;
     }
 
-    let response = await authFetch("http://localhost:8888/get-order-id", {
+    let response = await authFetch(`${process.env.REACT_APP_API_URL}/get-order-id`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -148,7 +148,7 @@ const CartPage = ({ userId }) => {
       handler:async function(response) {
        
 
-       let afterResponse = await authFetch(`http://localhost:8888/verify`, {
+       let afterResponse = await authFetch(`${process.env.REACT_APP_API_URL}/verify`, {
           method: "POST",
           timeout: 0,
           headers: {
@@ -202,7 +202,7 @@ const CartPage = ({ userId }) => {
     <div className="container">
       <h1 className="text-center m-3">My Cart</h1>
       <div className='text-center mt-4 '>
-       {{totalPrice}!==0?(<h5>Please add any item to proceed</h5>):(<h5 >Total summary :&nbsp;	&#8377; {totalPrice} </h5>)}
+       {{totalPrice}===0?(<h5>Please add any item to proceed</h5>):(<h5 >Total summary :&nbsp;	&#8377; {totalPrice} </h5>)}
       </div>
       <br />
       <br />

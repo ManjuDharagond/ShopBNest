@@ -41,7 +41,7 @@ app.use('/verify', verifyToken,verify);;
 
 
 
-
+mongoose.set('strictQuery', false);
 
 
 

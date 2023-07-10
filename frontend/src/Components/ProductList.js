@@ -20,14 +20,12 @@ const ProductList = ({ usersId }) => {
 
   const fetchProducts = async () => {
     try {
-      const response = await authFetch('http://localhost:8888/products/all', {
+      const response = await authFetch(`${process.env.REACT_APP_API_URL}/products/all`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         }
       });
-      
-
 
       setProducts(response);
     } catch (error) {
@@ -43,7 +41,7 @@ const ProductList = ({ usersId }) => {
 
     setCart([...cart, product]);
     try {
-      await authFetch('http://localhost:8888/cart/add', {
+      await authFetch(`${process.env.REACT_APP_API_URL}/cart/add`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -63,7 +61,7 @@ const ProductList = ({ usersId }) => {
     const updatedCart = cart.filter((item) => item._id !== productId);
     setCart(updatedCart);
     try {
-      await fetch('http://localhost:8888/cart/remove', {
+      await fetch(`${process.env.REACT_APP_API_URL}/cart/remove`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

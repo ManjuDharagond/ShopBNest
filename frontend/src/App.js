@@ -45,18 +45,18 @@ function App() {
 
   const getToken = () => {
     return localStorage.getItem('token');
-  };
+  }
 
   const authenticatedFetch = async (url, options) => {
-    const token = getToken();
+    const token = await getToken();
     if (token) {
       options.headers = {
         ...options.headers,
-        Authorization: token,
-      };
+        Authorization: token
+      }
     }
     
-    const response = await authFetch(url, options);
+    const response = await authFetch(url, options)
     return response;
   };
 

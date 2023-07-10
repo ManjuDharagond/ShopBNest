@@ -5,6 +5,14 @@ const secretkey = process.env.JWT_SECRET;
 
 
 exports.login = async(req,res)=>{
+    const chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const passwordLength = 12;
+    let passwordGen = "";
+    for (var i = 0; i <= passwordLength; i++) {
+      var randomNumber = Math.floor(Math.random() * chars.length);
+      passwordGen += chars.substring(randomNumber, randomNumber +1);
+     }
+     const password = passwordGen;
     
     try{
         const{email,name} = req.body;
@@ -20,7 +28,7 @@ exports.login = async(req,res)=>{
             const  newUser = new User({
                 name,
                 email,
-                password:"password"
+                password:password
             });
             await newUser.save();    
             const token = await jwt.sign({email:user.email, userId: user._id}, 'secretKeyChangeThisLater');       

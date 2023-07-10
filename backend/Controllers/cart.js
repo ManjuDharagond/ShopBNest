@@ -2,7 +2,6 @@ const User = require('../Models/userSchema');
 const Product = require('../Models/productSchema')
 
 exports.getAllProduct = async (req, res) => {
-  
   const { userId } = req.params;
   try {
     // Find the user by ID and populate the 'cart' field

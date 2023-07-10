@@ -6,7 +6,7 @@ const ProductDetails = (props) => {
   const addToCart = async (product) => {
     setCart([...cart, product]);
     try {
-      await fetch('http://localhost:8888/cart/add', {
+      await fetch(`${process.env.REACT_APP_API_URL}/cart/add`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ const ProductDetails = (props) => {
     const updatedCart = cart.filter((item) => item._id !== productId);
     setCart(updatedCart);
     try {
-      await fetch('http://localhost:8888/cart/remove', {
+      await fetch(`${process.env.REACT_APP_API_URL}/cart/remove`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

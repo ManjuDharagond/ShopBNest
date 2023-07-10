@@ -9,7 +9,7 @@ export default function RazorpayComp({userId}) {
     
     const calculateFinalBill = async (userId) => {
         try {
-          await fetch(`http://localhost:8888/calculate-bill`, {
+          await fetch(`${process.env.REACT_APP_API_URL}/calculate-bill`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ export default function RazorpayComp({userId}) {
           return false;
         }
     
-        let response = await fetch("http://localhost:8888/get-order-id", {
+        let response = await fetch(`${process.env.REACT_APP_API_URL}/get-order-id`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -70,7 +70,7 @@ export default function RazorpayComp({userId}) {
           handler:async function(response) {
            
     
-           let afterResponse = await fetch(`http://localhost:8888/verify`, {
+           let afterResponse = await fetch(`${process.env.REACT_APP_API_URL}/verify`, {
               method: "POST",
               timeout: 0,
               headers: {
